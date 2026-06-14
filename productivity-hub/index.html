@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productivity Hub — Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Ambient animated background -->
+  <div class="aurora" aria-hidden="true">
+    <div class="orb-wrap orb-wrap--1"><span class="orb orb--raspberry"></span></div>
+    <div class="orb-wrap orb-wrap--2"><span class="orb orb--gold"></span></div>
+    <div class="orb-wrap orb-wrap--3"><span class="orb orb--mint"></span></div>
+  </div>
+
+  <!-- Brand mark -->
+  <div class="brand">
+    <svg class="brand__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 0C12.5 6 14 11.5 24 12C14 12.5 12.5 18 12 24C11.5 18 10 12.5 0 12C10 11.5 11.5 6 12 0Z"/>
+    </svg>
+    <span>Productivity Hub</span>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <main class="card" id="card">
+
+    <!-- SIGN UP FORM -->
+    <section class="form-panel form-panel--signup" aria-labelledby="signUpTitle">
+      <form id="signUpForm" novalidate>
+        <span class="eyebrow">Get started</span>
+        <h1 id="signUpTitle" class="form-title">Create Account</h1>
+        <p class="form-sub">Join the hub and start your streak today.</p>
+
+        <div class="field">
+          <input type="text" id="suName" name="name" placeholder=" " autocomplete="name" required />
+          <label for="suName">Full name</label>
+          <span class="field-line"></span>
+          <span class="field-error" aria-live="polite"></span>
+        </div>
+
+        <div class="field">
+          <input type="email" id="suEmail" name="email" placeholder=" " autocomplete="email" required />
+          <label for="suEmail">Email address</label>
+          <span class="field-line"></span>
+          <span class="field-error" aria-live="polite"></span>
+        </div>
+
+        <div class="field field--password">
+          <input type="password" id="suPassword" name="password" placeholder=" " autocomplete="new-password" minlength="6" required />
+          <label for="suPassword">Password</label>
+          <button type="button" class="field-toggle" aria-label="Show password" data-target="suPassword">
+            <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a18.5 18.5 0 0 1 4.22-5.06M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 7 11 7a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          </button>
+          <span class="field-line"></span>
+          <span class="field-error" aria-live="polite"></span>
+          <span class="field-hint">Use at least 6 characters</span>
+        </div>
+
+        <button type="submit" class="btn btn--solid">
+          <span class="btn-label">Sign Up</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+          <svg class="btn-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+
+        <p class="mobile-switch">Already have an account?
+          <a href="#" class="switch-link" data-target="signin">Sign In</a>
+        </p>
+      </form>
+    </section>
+
+    <!-- SIGN IN FORM -->
+    <section class="form-panel form-panel--signin" aria-labelledby="signInTitle">
+      <form id="signInForm" novalidate>
+        <span class="eyebrow">Welcome</span>
+        <h1 id="signInTitle" class="form-title">Sign In</h1>
+        <p class="form-sub">Pick up right where your streak left off.</p>
+
+        <div class="field">
+          <input type="text" id="siUsername" name="username" placeholder=" " autocomplete="username" required />
+          <label for="siUsername">Username</label>
+          <span class="field-line"></span>
+          <span class="field-error" aria-live="polite"></span>
+        </div>
+
+        <div class="field field--password">
+          <input type="password" id="siPassword" name="password" placeholder=" " autocomplete="current-password" minlength="6" required />
+          <label for="siPassword">Password</label>
+          <button type="button" class="field-toggle" aria-label="Show password" data-target="siPassword">
+            <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a18.5 18.5 0 0 1 4.22-5.06M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 7 11 7a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          </button>
+          <span class="field-line"></span>
+          <span class="field-error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-row">
+          <label class="remember">
+            <input type="checkbox" id="remember" />
+            <span class="remember-box">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg>
+            </span>
+            Remember me
+          </label>
+          <a href="#" class="link-forgot">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn--solid">
+          <span class="btn-label">Sign In</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+          <svg class="btn-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+
+        <p class="mobile-switch">No account yet?
+          <a href="#" class="switch-link" data-target="signup">Sign Up</a>
+        </p>
+      </form>
+    </section>
+
+    <!-- OVERLAY -->
+    <div class="overlay-container" aria-hidden="true">
+      <div class="overlay">
+
+        <div class="overlay-panel overlay-panel--left">
+          <div class="streak">
+            <svg class="sparkle sparkle--main" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.5 6 14 11.5 24 12C14 12.5 12.5 18 12 24C11.5 18 10 12.5 0 12C10 11.5 11.5 6 12 0Z"/></svg>
+            <svg class="sparkle sparkle--small sparkle--a" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.5 6 14 11.5 24 12C14 12.5 12.5 18 12 24C11.5 18 10 12.5 0 12C10 11.5 11.5 6 12 0Z"/></svg>
+            <svg class="sparkle sparkle--small sparkle--b" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.5 6 14 11.5 24 12C14 12.5 12.5 18 12 24C11.5 18 10 12.5 0 12C10 11.5 11.5 6 12 0Z"/></svg>
+          </div>
+          <span class="eyebrow eyebrow--light">Hello, friend!</span>
+          <h2>Start Your Streak</h2>
+          <p>Already part of the hub? Sign back in to keep your notes, tasks and streak going.</p>
+          <button class="btn btn--ghost" id="goSignIn" type="button">Sign In</button>
+        </div>
+
+        <div class="overlay-panel overlay-panel--right">
+          <div class="streak">
+            <svg class="sparkle sparkle--main" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.5 6 14 11.5 24 12C14 12.5 12.5 18 12 24C11.5 18 10 12.5 0 12C10 11.5 11.5 6 12 0Z"/></svg>
+            <svg class="sparkle sparkle--small sparkle--a" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.5 6 14 11.5 24 12C14 12.5 12.5 18 12 24C11.5 18 10 12.5 0 12C10 11.5 11.5 6 12 0Z"/></svg>
+            <svg class="sparkle sparkle--small sparkle--b" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.5 6 14 11.5 24 12C14 12.5 12.5 18 12 24C11.5 18 10 12.5 0 12C10 11.5 11.5 6 12 0Z"/></svg>
+          </div>
+          <span class="eyebrow eyebrow--light">Welcome back!</span>
+          <h2>Welcome Back!</h2>
+          <p>Productivity Hub is a platform designed to track your productivity, keep your notes and run a streak.</p>
+          <button class="btn btn--ghost" id="goSignUp" type="button">No account yet? Sign Up</button>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
