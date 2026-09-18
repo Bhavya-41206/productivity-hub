@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productivity Hub — Diary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="stylesheet" href="diary.css" />
+</head>
+<body>
+
+  <div class="aurora" aria-hidden="true">
+    <div class="orb-wrap orb-wrap--1"><span class="orb orb--raspberry"></span></div>
+    <div class="orb-wrap orb-wrap--2"><span class="orb orb--gold"></span></div>
+    <div class="orb-wrap orb-wrap--3"><span class="orb orb--mint"></span></div>
+  </div>
+
+  <div class="backdrop" id="backdrop"></div>
+
+  <div class="app">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="brand">
+        <svg class="brand__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 0C12.5 6 14 11.5 24 12C14 12.5 12.5 18 12 24C11.5 18 10 12.5 0 12C10 11.5 11.5 6 12 0Z"/>
+        </svg>
+        <span>Productivity Hub</span>
+      </div>
+      <div class="profile" id="profile">
+        <button class="profile-btn" id="profileBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open profile menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="9" r="3"/><path d="M6.5 19a6 6 0 0 1 11 0"/></svg>
+        </button>
+        <div class="profile-menu" id="profileMenu" role="menu">
+          <a href="#" class="profile-item" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Points
+          </a>
+          <a href="#" class="profile-item" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Profile
+          </a>
+          <a href="#" class="profile-item" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            Heatmap
+          </a>
+          <div class="profile-divider"></div>
+          <a href="index.html" class="profile-item profile-item--danger" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Log Out
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="body-wrap">
+
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Toggle navigation labels" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <a href="tasks.html" class="nav-item">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6a1 1 0 0 1 1 1v1h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2V3a1 1 0 0 1 1-1z"/><path d="M9 12l2 2 4-4"/></svg>
+            </span>
+            <span class="nav-label">Task Manager</span>
+          </a>
+          <a href="diary.html" class="nav-item nav-item--active">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </span>
+            <span class="nav-label">Diary</span>
+          </a>
+          <a href="status.html" class="nav-item">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="20" x2="4" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="20" y1="20" x2="20" y2="14"/></svg>
+            </span>
+            <span class="nav-label">Status</span>
+          </a>
+          <a href="history.html" class="nav-item">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4"/><polyline points="3 4 3 9 8 9"/><polyline points="12 7 12 12 15 14"/></svg>
+            </span>
+            <span class="nav-label">History</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main -->
+      <main class="main diary-layout">
+
+        <!-- LEFT: Calendar + mood legend -->
+        <aside class="diary-sidebar">
+
+          <div class="page-header-sm">
+            <span class="eyebrow">Diary</span>
+            <h1>Your Journal</h1>
+          </div>
+
+          <!-- Calendar -->
+          <div class="cal-card">
+            <div class="cal-nav">
+              <button class="cal-nav-btn" id="calPrev" aria-label="Previous month">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <span class="cal-month-label" id="calMonthLabel"></span>
+              <button class="cal-nav-btn" id="calNext" aria-label="Next month">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+
+            <div class="cal-weekdays">
+              <span>Su</span><span>Mo</span><span>Tu</span><span>We</span>
+              <span>Th</span><span>Fr</span><span>Sa</span>
+            </div>
+            <div class="cal-grid" id="calGrid"></div>
+          </div>
+
+          <!-- Mood legend -->
+          <div class="mood-legend">
+            <p class="mood-legend__title">Mood key</p>
+            <div class="mood-legend__items">
+              <span>😊 Happy</span>
+              <span>😐 Neutral</span>
+              <span>😔 Sad</span>
+              <span>😤 Stressed</span>
+              <span>🔥 Focused</span>
+            </div>
+          </div>
+
+        </aside>
+
+        <!-- RIGHT: Entry panel -->
+        <section class="diary-entry-panel">
+
+          <!-- Entry view (read mode) -->
+          <div class="entry-view" id="entryView">
+            <div class="entry-view__header">
+              <div>
+                <span class="entry-view__date" id="viewDate"></span>
+                <h2 class="entry-view__title" id="viewTitle"></h2>
+              </div>
+              <div class="entry-view__mood" id="viewMood"></div>
+            </div>
+            <p class="entry-view__content" id="viewContent"></p>
+            <div class="entry-view__actions">
+              <button class="ev-btn ev-btn--edit" id="btnEdit" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                Edit
+              </button>
+              <button class="ev-btn ev-btn--del" id="btnDelete" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                Delete
+              </button>
+            </div>
+          </div>
+
+          <!-- Empty / no entry selected state -->
+          <div class="entry-empty" id="entryEmpty">
+            <div class="entry-empty__icon">📖</div>
+            <p>Select a date on the calendar.</p>
+            <span>Days with entries are highlighted. Click any date to read or write.</span>
+            <button class="write-btn" id="btnWriteEmpty" type="button">Write today's entry</button>
+          </div>
+
+          <!-- Write / Edit form -->
+          <form class="entry-form" id="entryForm" novalidate>
+            <div class="entry-form__header">
+              <span class="entry-form__date-label" id="formDateLabel"></span>
+              <button type="button" class="form-discard" id="btnDiscard">Discard</button>
+            </div>
+
+            <div class="ef-field">
+              <input type="text" id="efTitle" placeholder="Give this entry a title…" maxlength="80" required />
+              <span class="ef-error" id="err-ef-title"></span>
+            </div>
+
+            <!-- Mood picker -->
+            <div class="mood-picker" role="group" aria-label="Pick your mood">
+              <span class="mood-picker__label">How are you feeling?</span>
+              <div class="mood-options">
+                <label class="mood-opt" title="Happy">
+                  <input type="radio" name="mood" value="😊" />
+                  <span class="mood-emoji">😊</span>
+                </label>
+                <label class="mood-opt" title="Neutral">
+                  <input type="radio" name="mood" value="😐" />
+                  <span class="mood-emoji">😐</span>
+                </label>
+                <label class="mood-opt" title="Sad">
+                  <input type="radio" name="mood" value="😔" />
+                  <span class="mood-emoji">😔</span>
+                </label>
+                <label class="mood-opt" title="Stressed">
+                  <input type="radio" name="mood" value="😤" />
+                  <span class="mood-emoji">😤</span>
+                </label>
+                <label class="mood-opt" title="Focused">
+                  <input type="radio" name="mood" value="🔥" />
+                  <span class="mood-emoji">🔥</span>
+                </label>
+              </div>
+              <span class="ef-error" id="err-ef-mood"></span>
+            </div>
+
+            <div class="ef-field ef-field--grow">
+              <textarea id="efContent" placeholder="Write your thoughts for today…" required></textarea>
+              <span class="ef-error" id="err-ef-content"></span>
+            </div>
+
+            <div class="ef-footer">
+              <span class="ef-wordcount" id="efWordcount">0 words</span>
+              <button type="submit" class="btn-save-entry">Save Entry</button>
+            </div>
+          </form>
+
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Delete confirm modal -->
+  <div class="modal-backdrop" id="deleteBackdrop" aria-hidden="true">
+    <div class="modal modal--sm" role="dialog" aria-modal="true" aria-labelledby="deleteTitle">
+      <div class="modal-header">
+        <h2 class="modal-title" id="deleteTitle">Delete entry?</h2>
+      </div>
+      <div class="delete-body">
+        <p>This entry will be permanently deleted. This cannot be undone.</p>
+        <div class="delete-actions">
+          <button type="button" class="btn-cancel" id="btnDeleteCancel">Cancel</button>
+          <button type="button" class="btn-confirm-del" id="btnDeleteConfirm">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="dashboard.js"></script>
+  <script src="diary.js"></script>
+</body>
+</html>
